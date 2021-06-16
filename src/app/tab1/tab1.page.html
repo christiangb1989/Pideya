@@ -30,15 +30,15 @@
   <ion-slides pager="false" [options]="slideOptsCC">
     <ion-slide *ngFor="let mall of malls">
       <a routerLink="/tabs/store/{{ mall.id }}">
-        <img src="{{ mall.logo }}">
+        <img src="{{ media+mall.logo }}">
         <p class="text-category">{{ mall.nombre }}</p>
       </a>
     </ion-slide>
   </ion-slides>
   <ion-slides pager="false" [options]="slideOptsBanner">
     <ion-slide style="padding: 0px;"  *ngFor="let banners of Banner">
-        <img src="{{ banners.imagen }}" *ngIf="banners.apuntar =='producto'"  routerLink="/{{ banners.apuntar }}/{{ banners.url }}" style="width: 100%; padding-right: 15px;">
-        <img src="{{ banners.imagen }}" *ngIf="banners.apuntar =='tienda'" routerLink="/tabs/store/products/{{ banners.url }}" style="width: 100%; padding-right: 15px;">
+        <img src="{{ media+banners.imagen }}" *ngIf="banners.apuntar =='producto'"  routerLink="/{{ banners.apuntar }}/{{ banners.url }}" style="width: 100%; padding-right: 15px;">
+        <img src="{{ media+banners.imagen }}" *ngIf="banners.apuntar =='tienda'" routerLink="/tabs/store/products/{{ banners.url }}" style="width: 100%; padding-right: 15px;">
     </ion-slide>
   </ion-slides>
   
@@ -52,7 +52,7 @@
         <ion-slides [options]="slideOptscat">
           <ion-slide *ngFor="let cat of categoria">
             <a routerLink="/tabs/category/store/{{ cat.id }}">
-              <img src="{{ cat.imagen }}" class="redondo">
+              <img src="{{ media+cat.imagen }}" class="redondo">
               <p class="text-category">{{ cat.nombre }}</p>
             </a>
           </ion-slide>
@@ -82,7 +82,7 @@
           <ion-slide  *ngFor="let item of nearbyShops">
             <div class="content_box">
               <div class="col_box_1">
-                <img  routerLink="/tabs/store/products/{{ item.id }}" src="{{ item.logo }}" >
+                <img  routerLink="/tabs/store/products/{{ item.id }}" src="{{ media+item.logo }}" >
               </div>
               <div class="col_box_2">
                 <div><b>{{ item.nombre }}</b></div>

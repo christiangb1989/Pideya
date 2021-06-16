@@ -17,7 +17,7 @@ declare var google;
 })
 export class Tab1Page {
   authState = new BehaviorSubject(false);
-  searchData = null; 
+  searchData; 
   categoria:any = [];
   coords: any;
   latitude: number;
@@ -57,6 +57,7 @@ export class Tab1Page {
   };
   malls;
   Banner;
+  media;
 
   nearbyShops:any = [];
   hardwareStore:any = [];
@@ -76,7 +77,7 @@ export class Tab1Page {
     this.getCategoria();
     this.getNearbyStores();
 
-    
+    this.media = this.apiService.media;
 
     this.http.get(this.apiService.apiUrl+"meatandfish").subscribe( res =>{    
       if(Array.isArray(res)){
@@ -87,6 +88,7 @@ export class Tab1Page {
     })
 
   }
+
   profile(){
     this.presentLoading();
     this.storage.get('USER_INFO').then((data:any)=>{
@@ -184,7 +186,7 @@ export class Tab1Page {
 
    
   search(){
-    this.router.navigate(['search/'+this.searchData]);
+    this.router.navigate(['/search/'+this.searchData]);
   }
 
   async getNearbyStores(){

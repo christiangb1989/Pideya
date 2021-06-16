@@ -23,6 +23,7 @@ export class TiendasPage implements OnInit {
   negocios:any = [];
   myId = null;
   getMall:any;
+  media;
   constructor(
     private http:HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -32,6 +33,7 @@ export class TiendasPage implements OnInit {
     private socialSharing: SocialSharing,
     private file: File
   ) { 
+    this.media = this.apiService.media;
     this.locate()
   }
 
@@ -41,7 +43,7 @@ export class TiendasPage implements OnInit {
 
   }
   search(){
-    this.router.navigate(['search/'+this.searchData]);
+    this.router.navigate(['/search/'+this.searchData]);
   }
   async locate() {
 

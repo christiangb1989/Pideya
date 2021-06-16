@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <img routerLink="/tabs/tab1"  class="icono_back_page" src="/assets/img/backpage.png" alt="">
-  <img src="{{ bannerStore }}" style="width: 100%;" alt="">
+  <img src="{{ media+bannerStore }}" style="width: 100%;" alt="">
   <ion-searchbar 
         placeholder="¿Qué estás buscando?"
         [(ngModel)]="searchData"
@@ -8,7 +8,7 @@
         (inputmode)="search"></ion-searchbar>
         <div class="negocio">
           <div class="imagen_empresa">
-            <img src="{{ tienda.logo }}" alt="">
+            <img src="{{ media+tienda.logo }}" alt="">
           </div>
           <div class="desc_empresa">
             <p><strong>{{ tienda.nombre }}</strong><br><span>{{ tienda.direccion }}</span></p>

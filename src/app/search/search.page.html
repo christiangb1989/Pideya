@@ -1,5 +1,8 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar >
+    <ion-buttons slot="start" style="margin-top: 10px;">
+      <ion-back-button defaultHref="/tabs/tab1" text="" ></ion-back-button>
+    </ion-buttons>
     <ion-searchbar 
           placeholder="¿Qué estás buscando?"
           [(ngModel)]="searchData"

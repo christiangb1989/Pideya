@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthenticationService } from '../services/Authentication.service';
+import { AuthenticationService } from '../services/authentication.service';
 import { ApiService } from '../api.service'
 import { Router } from '@angular/router'
 import { Storage } from '@ionic/storage';

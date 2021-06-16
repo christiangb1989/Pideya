@@ -9,7 +9,7 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { AuthGuardService } from './services/auth-guard.service';
-import { AuthenticationService } from './services/Authentication.service';
+import { AuthenticationService } from './services/authentication.service';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';

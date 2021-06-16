@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../api.service';
 import { Storage } from '@ionic/storage'
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/Authentication.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-legales',

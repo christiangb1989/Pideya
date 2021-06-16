@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { AuthenticationService } from './services/Authentication.service';
+import { AuthenticationService } from './services/authentication.service';
 import { Plugins  } from '@capacitor/core';
 import { NotificacionService } from './service/notificacion.service';
 const { SplashScreen } = Plugins;

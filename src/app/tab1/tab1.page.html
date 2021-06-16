@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <span class="mi-ubicacion">
+      <img src="./assets/img/market.png" style="margin-right: 20px;"> {{ myUbicacion }}
+    </span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid style="border-bottom: solid 9px #ededed;">
+    <ion-row>
+      <ion-col size="2">
+        <a (click)="profile()">
+          <img src="./assets/img/perfil.jpg" class="icono-perfil" alt="">
+        </a>
+      </ion-col>
+      <ion-col size="10">
+        <ion-searchbar 
+        placeholder="¿Qué estás buscando?"
+        [(ngModel)]="searchData"
+        (search)="search()"
+        (inputmode)="search"></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <h3 class="tth3">Centros Comerciales</h3>
+  <ion-slides pager="false" [options]="slideOptsCC">
+    <ion-slide *ngFor="let mall of malls">
+      <a routerLink="/tabs/store/{{ mall.id }}">
+        <img src="{{ mall.logo }}">
+        <p class="text-category">{{ mall.nombre }}</p>
+      </a>
+    </ion-slide>
+  </ion-slides>
+  <ion-slides pager="false" [options]="slideOptsBanner">
+    <ion-slide style="padding: 0px;"  *ngFor="let banners of Banner">
+        <img src="{{ banners.imagen }}" *ngIf="banners.apuntar =='producto'"  routerLink="/{{ banners.apuntar }}/{{ banners.url }}" style="width: 100%; padding-right: 15px;">
+        <img src="{{ banners.imagen }}" *ngIf="banners.apuntar =='tienda'" routerLink="/tabs/store/products/{{ banners.url }}" style="width: 100%; padding-right: 15px;">
+    </ion-slide>
+  </ion-slides>
+  
+  
+  <ion-grid>
+    <ion-row>
+      <ion-col><h3 class="tth3" style="margin: 0px; padding: 0px;">Categoría</h3></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-slides [options]="slideOptscat">
+          <ion-slide *ngFor="let cat of categoria">
+            <a routerLink="/tabs/category/store/{{ cat.id }}">
+              <img src="{{ cat.imagen }}" class="redondo">
+              <p class="text-category">{{ cat.nombre }}</p>
+            </a>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-slides [options]="slideOptsOne">
+          <ion-slide *ngFor="let neg of business">
+            <a routerLink="/productos/{{ neg.id }}">
+              <img src="{{ neg.logo }}">
+            </a>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col><h3 class="title_puntos">Tiendas Cercanas</h3></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-slides [options]="slideOptsStoreDistance" >
+          
+          <ion-slide  *ngFor="let item of nearbyShops">
+            <div class="content_box">
+              <div class="col_box_1">
+                <img  routerLink="/tabs/store/products/{{ item.id }}" src="{{ item.logo }}" >
+              </div>
+              <div class="col_box_2">
+                <div><b>{{ item.nombre }}</b></div>
+                <div style="font-size: 9px;">{{ item.direccion }}</div>
+                <div></div>
+              </div>
+              <div class="col_box_3">
+                <div>
+                  <a target="_blank" href="http://www.google.com/maps/place/{{ item.lat }},{{ item.long }}">
+                    <img src="/assets/img/go_to_store.png" alt="">
+                    <span>Ir a tienda</span>
+                  </a>
+                  
+                </div>
+              </div>
+            </div>
+          </ion-slide>
+
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "468567793700",
+    "project_id": "ya-market-62196",
+    "storage_bucket": "ya-market-62196.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:468567793700:android:db1bfd1e37c52c321938b1",
+        "android_client_info": {
+          "package_name": "com.yamarketapp.orivalenty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "468567793700-t9ce139dehkpbltnluu5fisk5717l190.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yamarketapp.orivalenty",
+            "certificate_hash": "143e3f06dab96db25962eb9e60800d08ae9d74b5"
+          }
+        },
+        {
+          "client_id": "468567793700-avkhpb56lmvo1th0p1rcppq0h77mngmm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACvCX_6S-4dVZZYhA4P1GOtD2CZy1cUzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "468567793700-avkhpb56lmvo1th0p1rcppq0h77mngmm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

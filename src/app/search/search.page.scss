@@ -1,0 +1,61 @@
+*{
+    outline: none;
+}
+ion-toolbar{
+    --background: #F3F3F3;
+    --border-width: 0px !important;
+}
+.mi-ubicacion{
+    font-weight: 500;
+    font-family: "Cartica";
+    padding: 15px 10px;
+    display: block;
+    font-size: 18px;
+}
+.mi-ubicacion img{
+    height: 14px;
+}
+h3{
+    padding: 0px;
+    margin: 0px;
+    font-size: 15px;
+    font-weight: 700;
+
+}
+.add-favoritos{
+    float: right;
+    height: 20px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+}
+
+
+
+.direccion{
+    color: #6D6D6D;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.direccion img{
+    height: 16px;
+    margin-right: 10px;
+}
+.precio{
+    display: inline-block;
+}
+.btn-addcar{
+    display: inline-block;
+    float: right;
+}
+.btn-grupo{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+ion-button{
+    --ion-color-contrast:var(--ion-color-danger, #eb445a) !important;
+}

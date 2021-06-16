@@ -1,0 +1,186 @@
+*{
+    outline: none;
+}
+ion-toolbar{
+    --background: #F3F3F3;
+    --border-width: 0px !important;
+}
+.mi-ubicacion{
+    font-weight: 500;
+    font-family: "Cartica";
+    padding: 15px 10px;
+    display: block;
+    font-size: 18px;
+}
+.mi-ubicacion img{
+    height: 14px;
+}
+h3{
+    padding: 0px;
+    margin: 0px;
+    font-family: "antoniobold";
+    font-size: 18px;
+}
+.add-favoritos{
+    float: right;
+    height: 20px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'antoniolight';
+    font-size: 16px;
+}
+
+ion-row{
+    padding: 10px 0px;
+}
+
+.direccion{
+    color: #6D6D6D;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.direccion img{
+    height: 16px;
+    margin-right: 10px;
+}
+.precio{
+    display: inline-block;
+}
+.btn-addcar{
+}
+
+.data_negocio{
+    padding: 0px;
+    margin: 0px;
+    color: #6D6D6D;
+}
+.pm-0{
+    padding: 0px;
+    margin: 0px;
+}
+.producto{
+    display: flex;
+    flex-direction: row;
+    background: #FAFAFA;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.33);
+    margin-left: 10px; 
+    margin-right: 10px;
+    margin-top: 15px;
+}
+.producto .imagen{
+    width: 19.04761904761905%;
+}
+.producto .descripcion{
+    width: 58.33333333333333%;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    padding-left: 10px;
+    justify-content: space-between;
+}
+.producto .descripcion p{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+}
+.producto .addcart{
+    width: 22.61904761904762%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: -7px;
+}
+.descuento_box{
+    background: #E81A22;
+    color: white;
+    border-radius: 5px;
+    padding: 2px 10px;
+    font-size: 9px;
+}
+p.dscprecio{
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-weight: 700;
+}
+.dscprecio span{
+    margin-right: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.ppp_33{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+.negocio{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+.imagen_empresa{
+    width: 16.66666666666667%;
+}
+.desc_empresa{
+    width: 64.44444444444444%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 5px;
+}
+
+.desc_empresa p{
+    font-size: 11px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.compartir_empresa{
+    width: 12.04819277108434%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.compartir_empresa div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.compartir_empresa div img{
+    width: 26px;
+}
+.compartir_empresa div span{
+    font-size: 8px;
+    display: block;
+}
+.icono_back_page{
+    position: absolute;
+    padding: 10px;
+    color: white;
+    font-size: 25px;
+}
+.boxImagen{
+    width: 60px;
+    height: 60px;
+}
+.btn-addcar{
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 12px;
+    padding: 5px 10px;
+    background: white;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.50);
+    color: red;
+}

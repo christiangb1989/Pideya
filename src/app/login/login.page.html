@@ -1,0 +1,24 @@
+<ion-content class="background-register">
+  <div class="bar-degrad">
+    <img src="assets/img/icono.png" class="iconoheat" alt="" srcset="">
+  </div>
+  <ion-grid style="margin-top: 50px;">
+    <ion-row>
+      <ion-col>
+          <p class="titulo">!Ingresar¡</p>
+          <p class="textContent">Para unirte ingresa tu número actual de teléfono y te enviaremos un codigo</p>
+          <label class="textn">Numero de celular*</label>
+          <input type="number" placeholder="999999999" [(ngModel)]="user.phone" class="inputText">
+          <input type="text" hidden [(ngModel)]="user.fcm" value="{{ userId }}">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button class="inputbutton" (click)="login()">Recibir código por SMS</button>
+        <!-- <div class="links">
+          <span routerLink="/registrar">Quiero registrarme</span>
+        </div> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

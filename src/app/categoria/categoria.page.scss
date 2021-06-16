@@ -1,0 +1,74 @@
+.box_go_to_store{
+    width: 46px;
+    outline: none;
+}
+.icono_back_page{
+    position: absolute;
+    padding: 10px;
+    color: white;
+    font-size: 25px;
+}
+.margin-top{
+    padding-top: 50px;
+}
+h3{
+    margin-top: 0px;
+}
+ion-row{
+    padding: 10px 0px;
+}
+ion-item{
+    --background: #FAFAFA;
+    //--box-shadow: 3px 2px 5px 1px rgb(195 195 195 / 58%);
+    box-shadow: 3px 2px 5px 1px rgba(163,163,163,58);
+    --border-style: none;
+    border-radius: 10px;
+}
+.box_go_to_store{
+    width: 46px;
+    outline: none;
+}
+.go_to_store{
+    width: 13px;
+    height: 13px;
+    margin: 0px auto;
+    display: block;
+}
+.go_to_store_text{
+    font-size: 8px;
+    text-align: center;
+    margin: 3px 0px 0px;
+}
+.box-share{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+.tienda{
+    display: flex;
+    margin: 20px 30px;
+    background: #FAFAFA;
+    box-shadow: 3px 2px 5px 1px #a3a3a3;
+    border-radius: 10px;
+    padding: 10px;
+}
+.col_1{
+    width: 21.33333333333333%;
+}
+.col_2{
+    width: 64%;
+    padding-left: 10px;
+}
+.col_3{
+    width: 14.66666666666667%;
+}
+.no_disponible{
+    text-align: center;
+}
+.barpage{
+    height: 45px;
+    background: red;
+}

@@ -1,0 +1,35 @@
+<ion-content [fullscreen]="true">
+  <img (click)="backpage()" class="icono_back_page" src="/assets/img/backpage.png" alt="">
+  <!-- <ion-icon class="icono_back_page" name="chevron-back-outline"></ion-icon> -->
+  <img src="{{ getBannerMall }}" alt="">
+  <ion-searchbar 
+        placeholder="¿Qué estás buscando?"
+        [(ngModel)]="searchData"
+        (search)="search()"
+        (inputmode)="search"></ion-searchbar>
+  
+  <div class="tienda" *ngFor="let negocio of negocios">
+    <div class="col_1">
+      <img class="logo_tienda" src="{{ negocio.logo }}">
+    </div>
+    <div class="col_2">
+      <h3 style="font-size: 15px; font-weight: 600;">{{ negocio.nombre }}</h3>
+      <p style="font-size: 11px;">{{ negocio.direccion }}</p>
+    </div>
+    <div class="col_3">
+      <div class="box-share">
+        <div class="box_go_to_store" routerLink="/tabs/store/products/{{ negocio.id }}">
+          <img src="/assets/img/go_to_store.png" class="go_to_store" alt="">
+          <p class="go_to_store_text">Ir a tienda</p>
+        </div>
+        <div class="box_go_to_store" (click)="compartir()">
+          <img src="/assets/img/to_share.png" class="go_to_store" alt="">
+          <p class="go_to_store_text">Compartir</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="no_disponible" *ngIf="negocios.length == 0" >No hay tiendas disponibles</p>
+
+  <!--  -->
+</ion-content>

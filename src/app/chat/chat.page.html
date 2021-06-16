@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12">
+          <a routerLink="/ruta" class="btn__page-back">
+            <img src="./assets/img/backpage.png" style="height: 20px;" alt="">
+          </a>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <h1>Tu chat</h1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h2 style="padding-left: 20px;">Kevin Macazana Rojas</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <div class="chat-user">
+          <p>Buenas noches Sr. Jose Eduardo
+            estoy a la espera de su pedido</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <div class="chat-conductor">
+          <p>Muchas gracias</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-grid fixed>
+      <ion-row>
+        <ion-col size="10">
+          <ion-input type="text" id="mensaje" placeholder="Escribe un mensaje"></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-buttons slot="end">
+      <ion-button  color="success" (click)="onClick()">
+        <ion-icon name="send-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

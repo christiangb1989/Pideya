@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ya Market</string>
+    <string name="title_activity_main">Ya Market</string>
+    <string name="package_name">com.yamarketapp.orivalenty</string>
+    <string name="custom_url_scheme">com.yamarketapp.orivalenty</string>
+</resources>

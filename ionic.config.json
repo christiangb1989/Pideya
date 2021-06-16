@@ -1,0 +1,11 @@
+{
+  "name": "Molicommerce",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "proxies": [{
+    "path": "/api",
+    "proxyUrl": "https://molina.digitalplataform.com/public/api"
+ }]
+}

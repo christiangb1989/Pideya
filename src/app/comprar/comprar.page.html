@@ -1,0 +1,128 @@
+<ion-header>
+  <ion-toolbar>
+    <img slot="start" (click)="backpage()" class="icono_back_page" src="/assets/img/backpage.png" alt="">
+    <p class="segircomprando"  (click)="backpage()">Segir comprando</p>
+    
+    <ion-buttons slot="end">
+      <h1>Comprar</h1>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="direccion_entrega">
+    <img src="./assets/img/market.png">
+    <span>DIRECCIÓN DE ENTREGA</span>
+  </div>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12">
+        <div #map id="map"  style="height: 300px; width: 100%;"></div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-input type="text" required  style="--padding-start: 20px;" [(ngModel)]="user.ubicacion" value="{{ myUbicacion }}"></ion-input>
+        <ion-input type="text" hidden [(ngModel)]="user.lat" value="{{ latitud }}"></ion-input>
+        <ion-input type="text" hidden [(ngModel)]="user.long" value="{{ longitud }}"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <span style="padding-left: 20px;">Entrega estimada</span>
+      </ion-col>
+      <ion-col>
+        <span>40 min</span>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-textarea placeholder="Referencia" [(ngModel)]="user.referencia" required></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-radio-group id="rocojo" [(ngModel)]="user.tienda" required>
+            <ion-item>
+              <ion-label>Recojo en tienda</ion-label>
+              <ion-radio slot="end" (click)="recojoTienda($event)"  value="Recojo en tienda" id="recojo"></ion-radio>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>Delivery</ion-label>
+              <ion-radio slot="end" id="delivery" (click)="delivery($event)" value="Pago contra entrega"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list>
+          <ion-radio-group [(ngModel)]="user.metodo" required>
+            <ion-list-header>
+              <ion-label>Método de pago</ion-label>
+            </ion-list-header>
+            <div class="metodo-pago">
+              <h3>Método de pago</h3>
+              <p>Delivery: <strong>S/{{ priceDelivery }}</strong></p>
+              <p>Productos: <strong>S/{{ priceProduct }}</strong></p>
+              <p>Total a cobrar: <strong>S/{{ precio.toFixed(2) }}</strong></p>
+              <ion-input type="text" hidden [(ngModel)]="user.precio" value="{{ precio.toFixed(2) }}"></ion-input>
+            </div>
+            
+            <ion-item *ngIf="statusTienda == true && statusDelivery == true">
+              <ion-label>
+                <img src="./assets/img/efectivo.png" style="height: 20px;" alt="">
+                Efectivo</ion-label>
+              <ion-radio slot="end" value="Efectivo"></ion-radio>
+            </ion-item>
+        
+            <ion-item *ngIf="statusTienda == true && statusDelivery == true">
+              <ion-label>
+                <img src="./assets/img/tarjeta.png" style="height: 20px;" alt="">
+                Tarjeta & POS
+              </ion-label>
+              <ion-radio slot="end" value="Tarjeta & POS"></ion-radio>
+            </ion-item>
+
+            <ion-item  *ngIf="statusTienda == true">
+              <ion-label>
+                <img src="./assets/img/plin.png" style="height: 20px;" alt="">
+                Plin
+              </ion-label>
+              <ion-radio slot="end" value="Plin"></ion-radio>
+            </ion-item>
+
+            <ion-item  *ngIf="statusTienda == true">
+              <ion-label>
+                <img src="./assets/img/yape.png" style="height: 20px;" alt="">
+                Yape
+              </ion-label>
+              <ion-radio slot="end" value="Yape"></ion-radio>
+            </ion-item>
+
+            <ion-item *ngIf="statusTienda == true">
+              <ion-label>
+                <img src="./assets/img/luquita.png" style="height: 20px;" alt="">
+                Luquita
+              </ion-label>
+              <ion-radio slot="end" value="Luquita"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>
+
+<ion-footer>
+  <!-- routerLink="/compra-exitosa" -->
+  <ion-button expand="full" class="fcomprar" (click)="submitPago()" >Finalizar compra</ion-button>
+</ion-footer>

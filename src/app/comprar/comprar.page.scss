@@ -1,0 +1,70 @@
+ion-toolbar{
+    --background: #FF0000;
+    --border-width: 0px !important;
+    padding: 0px 10px;
+}
+h1{
+    font-family: 'Montserrat';
+    padding-left: 10px;
+    color: white;
+    font-size: 14px;
+    margin: 0px;
+}
+.icono_back_page{
+    
+
+}
+.segircomprando{
+    font-family: 'Montserrat';
+    color: white;
+    font-size: 14px;
+    font-weight:500 ;
+}
+.direccion_entrega{
+    font-family: 'antoniolight';
+    padding-left: 10px;
+    padding-top: 30px;
+}
+.direccion_entrega img{
+    height: 14px;
+    padding-right: 10px;
+}
+.fcomprar{
+    --background: #FF0000;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    height: 60px;
+    margin: 0px auto;
+    display: block;
+    font-weight: 400;
+    letter-spacing: 4px;
+}
+ion-textarea{
+    --background: #F3F3F3;
+    padding: 21px;
+    height: 120px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+ion-textarea{
+    .native-textarea{
+        background: #F3F3F3;
+        padding: 21px;
+        height: 120px;
+        border-radius: 20px;
+    }
+}
+
+ion-item{
+    border: none;
+}
+.metodo-pago{
+    font-family: "Cartica";
+    margin: 20px 20px;
+}
+.metodo-pago h3, 
+.metodo-pago p{
+    letter-spacing: 0px;
+    padding: 0px;
+    margin: 0px 0px;
+}

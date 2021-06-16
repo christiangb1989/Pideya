@@ -1,0 +1,203 @@
+*{
+    outline: none;
+}
+ion-toolbar{
+    --background: #FF0000;
+    --border-width: 0px !important;
+}
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding-left: 10px;
+    margin: 0px;
+}
+h3{
+    padding: 0px;
+    margin: 0px;
+
+    font-size: 16px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+
+    font-size: 16px;
+}
+ion-toolbar{
+    padding: 0px 10px;
+}
+ion-row{
+    padding: 0px 0px;
+}
+
+.prod_details{
+    display: flex;
+    flex-direction: row;
+}
+
+.prod_details img{
+    margin-right: 10px;
+}
+
+.col_descripcion{
+    display: flex;
+    flex-direction: row;
+    font-family: 'Montserrat';
+    font-size: 12px;
+    font-weight: 600;
+    justify-content: flex-start;
+    text-transform: uppercase;
+}
+.btn-closet{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background: #818181;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    margin-left: 10px;
+
+}
+.direccion{
+    color: #6D6D6D;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.direccion img{
+    height: 16px;
+    margin-right: 10px;
+}
+.precio{
+    display: block;
+    width: 100%;
+    height: 24px;
+    text-align: right;
+
+}
+.btn-addcar{
+    width: 110px;
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+}
+
+.qty{
+    width: 110px;
+    height: 43px;
+    border-radius: 10px;
+
+    font-size: 31px;
+    -webkit-box-shadow: 5px 5px 10px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 10px -4px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 10px -4px rgba(0,0,0,0.75);
+    display: inline-block;
+    margin-left: 21px;
+    
+}
+.qty a{
+    color: black;
+    padding: 0px 15px 5px;
+    margin-top: 3px;
+    display: inline-block;
+}
+.qty span{
+    display: flex;
+    width: 33.3333333333%;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 22px;
+}
+#count{
+    font-size: 22px;
+}
+.bar-botton{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 52px;
+}
+
+.bar-botton span{
+    display: inline-block;
+}
+.numprod{
+    padding: 6px 15px !important;
+    border-radius: 7px;
+    background: #b91616;
+}
+.btn-pagar{
+    --background: #ff0000;
+    margin: 0px auto;
+    display: block;
+    padding: 0px 20px;
+    height: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+.segircomprando{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    color: white;
+    font-weight: 500;
+}
+.textprodpagat{
+    padding: 0px 33px;
+    
+}
+.img-producto{
+    width: 80px;
+}
+.colpagos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cajapedido{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px;
+    background: #FAFAFA;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+}
+.btn_tops{
+    display: flex;
+    justify-content: flex-end;
+}
+ion-footer {
+    padding: 22px 0px;
+    background: #fff;
+}
+
+.img-favorite{
+    width: 20px;
+    float: right;
+    display: flex;
+
+}
+.factura{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Montserrat';
+}
+
+.factura h3{
+    font-size: 13px;
+    font-weight: 500;
+    font-family: 'Montserrat';
+    height: initial;
+}

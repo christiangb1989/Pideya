@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/tabs/tab1">
+        <img src="./assets/img/cerrar.png" style="height: 30px;" alt="">
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Orden 108506</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/chat">
+        <img src="./assets/img/chatear.png" style="height: 30px;" alt="">
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<!-- Content -->
+<ion-content>
+  <google-map height="100vh" width="100%"></google-map>
+  
+</ion-content>
+<ion-footer>
+  <ion-grid class="desplegable">
+    <ion-row>
+      <ion-col size="12">
+        <ion-buttons>
+          <ion-button class="close" (click)="closeDetails()">
+            <img src="./assets/img/close.png" style="width: 60px;" alt="">
+          </ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="2">
+        <img src="./assets/img/interro.png" style="width: 30px;" alt="">
+      </ion-col>
+      <ion-col size="6">
+        <p class="nombre">Esperando a
+          Gerardo</p>
+      </ion-col>
+      <ion-col size="4">
+        <p class="precio">s/.11.00</p>
+      </ion-col>
+    </ion-row>
+    <div class="hr-line"></div>
+    <ion-row>
+      <ion-col size="2">
+        <img src="./assets/img/conductor.png" style="width: 40px;" alt="">
+      </ion-col>
+      <ion-col size="6">
+        <p class="nombre">Gerardo Ortiz</p>
+      </ion-col>
+      <ion-col size="4">
+        <a href="tel:+51998167315">
+          <img src="./assets/img/tel.png" style="width: 30px;" alt="">
+        </a>
+      </ion-col>
+    </ion-row>
+    <div class="hr-line"></div>
+    <ion-row>
+      <ion-col size="2">
+        <img src="./assets/img/car.png" style="width: 30px;" alt="">
+      </ion-col>
+      <ion-col size="6">
+        <p class="nombre">Caja grande </p>
+        <p><small>Pago con tarjeta</small></p>
+      </ion-col>
+      <ion-col size="4">
+      </ion-col>
+    </ion-row>
+    <div class="hr-line"></div>
+    <ion-row>
+      <ion-col size="2">
+        <img src="./assets/img/negocios.png" style="width: 30px;" alt="">
+      </ion-col>
+      <ion-col size="6">
+        <p class="nombre">Comunicarse con tienda</p>
+        <p>971 349 321</p>
+      </ion-col>
+      <ion-col size="4">
+        <a href="tel:+51998167315">
+          <img src="./assets/img/tel.png" style="width: 30px;" alt="">
+        </a>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button class="btn-reporte" (click)="onClick()">
+        Reportar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

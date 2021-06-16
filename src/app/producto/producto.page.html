@@ -1,0 +1,68 @@
+<ion-content>
+  <div class="bartop">
+
+  </div>
+  <img routerLink="/tabs/store/products/{{ productos.negocio_id }}" class="icono_back_page" src="/assets/img/backpage.png" alt="">
+  <ion-grid class="thumbnails">
+    <ion-row>
+      <ion-col>
+        <img id="imagen_main" src="{{ media+productos.imagen }}" width="100%" class="img-details">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="gallery">
+    <div *ngFor="let item of producto_gallery" >
+      <img (click)="openImg(item.img)" src="{{ media+item.img }}" alt="">
+    </div>
+  </div>
+  <h3>{{ productos.titulo }}</h3>
+  <p>{{ productos.descripcion }}</p>
+  <p class="dscprecio" >
+    <span *ngIf="!productos.descuento" >S/{{ productos.precio }}</span>
+    <span style="text-decoration: line-through;" *ngIf="productos.descuento" >S/{{ productos.precio }}</span>
+    <span *ngIf="productos.descuento > 0" > - S/{{ (productos.precio - productos.descuento).toFixed(2) }}</span>
+    <span *ngIf="productos.descuento > 0" class="descuento_box">{{ ( productos.descuento / (productos.precio / 100)) }}%</span>
+  </p>
+  <div class="detalles">
+    <div class="atributos">
+      
+      <div *ngIf="color" >
+        <p>Color</p>
+        <div class="color">
+          <div (click)="selectColor(item.color)" class="selectColor" [ngStyle]="{'background': item.color}" *ngFor="let item of color">
+            <ion-icon name="checkmark-outline" *ngIf="_select_talla == item.color" ></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="talla" >
+        <p>Talla</p>
+        <div class="talla">
+          <div (click)="selectTalla(item.talla)" class="selectTalla" *ngFor="let item of talla">
+            {{ item.talla }}
+            <ion-icon name="checkmark-outline" *ngIf="_select_color == item.talla" ></ion-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>
+<ion-footer>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div (click)="addtocart()" class="btn_monstrar">
+          <span>Agregar <strong>S/<span id="precio">{{ (productos.descuento) ? (productos.precio - productos.descuento).toFixed(2) : productos.precio }}</span></strong></span>
+        </div>
+      </ion-col>
+      <ion-col style="display: flex;flex-direction: row;justify-content: flex-end;">
+        <div class="qty">
+          <span (click)="restar()">-</span>
+          <span id="count">1</span>
+          <span (click)="sumar()">+</span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+

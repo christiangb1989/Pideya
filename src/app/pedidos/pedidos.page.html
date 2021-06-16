@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <img slot="start" (click)="backpage()" class="icono_back_page" src="/assets/img/backpage.png" alt="">
+    <p class="segircomprando"  (click)="backpage()">Segir comprando</p>
+    <h1  slot="end">Tu Pedido</h1>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <p *ngIf="!productos.length" style="margin: 10px;" >No hay productos en el carrito</p>
+  <div *ngFor="let prod of productos" class="cajapedido" id="pedido-{{ prod.id }}">
+    <div class="prod_details">
+      <img src="{{ media+prod.imagen }}" class="img-producto">
+      <div class="col_descripcion">{{ prod.producto }}</div>
+    </div>
+    
+    <div class="colpagos">
+      <div class="btn_tops">
+        <a class="btn-closet" (click)="deleteProductCart(prod.id)">x</a>
+      </div>
+      <div class="factura">
+        <span>Cantidad {{ prod.cantidad }}</span>
+        <span>Precio {{ prod.precio.toFixed(2) }} </span>
+        <h3 class="precio">Total: S/{{ prod.total }}</h3>
+      </div>
+    </div>
+  </div>
+</ion-content>  
+<ion-footer>
+  <ion-button *ngIf="!productos.length"  class="btn-pagar">
+    Seleccione algun producto
+  </ion-button>
+  <ion-button *ngIf="productos.length"  class="btn-pagar" (click)="comprar()">
+    <span class="numprod">{{ productsInBasket }}</span>
+    <span class="textprodpagat">IR A PAGAR</span>
+    <span>S/{{ total }}</span>
+  </ion-button>
+</ion-footer>

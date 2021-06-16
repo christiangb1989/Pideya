@@ -1,0 +1,34 @@
+<ion-content class="background-register">
+  <div class="bar-degrad">
+    <img (click)="backpage()" class="icono_back_page" src="/assets/img/backpage.png" alt="">
+    <img src="assets/img/icono.png" class="iconoheat" alt="" srcset="">
+    <div>ssss</div>
+  </div>
+  <ion-grid style="margin-top: 50px;">
+    <ion-row>
+      <ion-col>
+          <p class="titulo">!registrar¡</p>
+          <p class="textContent">Para unirte ingresa tu número actual de teléfono y te enviaremos un codigo</p>
+          <label class="textn">Nombre</label>
+          <input type="text" placeholder="Nombres" [(ngModel)]="user.nombres" class="inputText">
+          <label class="textn">Apellido</label>
+          <input type="text" placeholder="Apellidos" [(ngModel)]="user.apellidos" class="inputText">
+          <label class="textn">Correo electrónico</label>
+          <input type="email" placeholder="user@mail.com" [(ngModel)]="user.email" class="inputText">
+          <label class="textn">Contraseña</label>
+          <input type="passwrod"  [(ngModel)]="user.clave" class="inputText">
+          <label class="textn">Numero celular</label>
+          <input type="number" placeholder="956862365" [(ngModel)]="user.telefono" class="inputText">
+          <div style="display: flex;" class="terminos">
+            <input type="checkbox" [(ngModel)]="term" > Acepto Terminos y Condiciones
+          </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button (click)="registar()" class="inputbutton">Recibir código por SMS</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

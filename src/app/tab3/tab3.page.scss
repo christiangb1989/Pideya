@@ -1,0 +1,66 @@
+ion-toolbar{
+    --background: #F3F3F3;
+    --border-width: 0px !important;
+}
+h1{
+    font-family: "Cartica";
+    padding-left: 10px;
+    font-size: 16px;
+}
+.producto{
+    padding-top: 10px;
+}
+.btn-closet{
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    background: #818181;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: 10px;
+    float: right !important;
+    position: absolute;
+    right: 0;
+}
+.mi-ubicacion{
+    font-weight: 500;
+    font-family: "Cartica";
+    padding: 15px 10px;
+    display: block;
+    font-size: 18px;
+}
+.mi-ubicacion img{
+    height: 14px;
+}
+h3{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'antoniobold';
+}
+p{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'antoniolight';
+    font-size: 16px;
+}
+
+.direccion{
+    color: #6D6D6D;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.direccion img{
+    height: 16px;
+    margin-right: 10px;
+}
+.precio{
+    display: inline-block;
+    margin-top: 11px;
+}
+.btn-addcar{
+    width: 110px;
+    display: inline-block;
+    float: right;
+}

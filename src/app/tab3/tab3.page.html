@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <h1>Favoritos</h1>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+  <ion-searchbar 
+        placeholder="¿Qué estás buscando?"
+        [(ngModel)]="searchData"
+        (search)="search()"
+        (inputmode)="search"></ion-searchbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-list *ngIf="productos.length==0">
+          <ion-item>
+            <ion-label>No cuenta con favoritos agregados</ion-label>
+          </ion-item>
+        </ion-list>
+        <ion-list *ngIf="productos.length > 0">
+          <!-- In store -->
+          <ion-item class="producto" *ngFor="let prod of productos" id="favorite-{{ prod.id_favorito }}">
+            <ion-row>
+              <ion-col size="3">
+                <img src="{{ prod.imagen }}">
+              </ion-col>
+              <ion-col size="9">
+                <ion-row>
+                  <ion-col size="10">
+                    <h3 routerLink="/producto/{{ prod.id }}">{{ prod.nombre }}</h3>
+                  </ion-col>
+                  <ion-col size="2">
+                    <a class="btn-closet" (click)="deleteFavorito(prod.id_favorito)">
+                      x
+                    </a>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="12">
+                    <p>{{ prod.descripcion }}</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="6">
+                    <h3 class="precio">S/{{ prod.precio }}</h3>
+                  </ion-col>
+                  <ion-col size="6">
+                    <a class="btn-addcar" routerLink="/producto/{{ prod.id }}">
+                      <img src="./assets/img/add.png" class="">
+                    </a>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+          
+          <!-- End store -->
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--  -->
+</ion-content>
+
+

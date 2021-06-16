@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <h1>Tus Pedidos</h1>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid>
+    <ion-row>
+
+      <ion-col>
+        <p *ngIf="orders.length==0">No pedidos disponibles</p>
+        <div *ngFor="let order of orders">
+          <p><strong>Pedido N° {{ order.id }}</strong></p>
+          <p><strong>Estado del pedido : </strong>{{ order.status }}</p>
+          <ion-card *ngFor="let producto of order.productos">
+            <ion-card-content>
+              <div style="display: flex; " >
+                <div>
+                  <img src="{{ media+producto.imagen }}" style="height: 90px;" alt="" srcset="">
+                </div>
+                <div class="desc" style="font-size: 12px;">
+                  <p><strong>Cantidad: </strong>{{ producto.cantidad }}</p>
+                  <p><strong>Producto: </strong>{{ producto.producto }}</p>
+                  <p><strong>Total: </strong>{{ producto.total }}</p>
+                  <p><strong>Tienda: </strong>{{ producto.negocio }}</p>
+                  
+                </div>
+              </div>
+                
+              
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--  -->
+</ion-content>

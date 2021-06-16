@@ -1,0 +1,151 @@
+ion-header{
+    --background: #FF0000 ;
+    font-family: 'Montserrat';
+}
+
+ion-toolbar{
+    --background: #FF0000;
+    --border-width: 0px !important;
+    color: white;
+    
+}
+h1{
+    font-family: "Cartica";
+    padding-left: 10px;
+    font-size: 16px;
+    font-family: 'Montserrat';
+}
+h3{
+    padding: 0px;
+    margin: 0px;
+    font-family: 'antoniobold';
+    font-size: 16px;
+}
+p{
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+}
+
+.add-favoritos{
+    height: 20px;
+    
+}
+ion-toolbar{
+    padding: 0px 10px;
+}
+
+
+.direccion{
+    color: #6D6D6D;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.direccion img{
+    height: 16px;
+    margin-right: 10px;
+}
+.precio{
+    display: inline-block;
+    font-size: 14px;
+}
+.btn-addcar{
+    width: 110px;
+    display: inline-block;
+    float: right;
+    margin-top: 15px;
+}
+
+.qty{
+    width: 110px;
+    height: 43px;
+    border-radius: 10px;
+    font-size: 31px;
+    -webkit-box-shadow: 5px 5px 10px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 10px -4px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 10px -4px rgba(0,0,0,0.75);
+    display: inline-block;
+    float: right;
+    
+}
+.qty a{
+    color: black;
+    padding: 0px 16px 5px;
+    margin-top: 3px;
+    display: inline-block;
+}
+.qty span{
+    display: flex;
+    width: 33.3333333333%;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 22px;
+}
+#count{
+    font-size: 22px;
+}
+.bar-botton{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 52px;
+}
+
+.bar-botton span{
+    display: inline-block;
+}
+.numprod{
+    padding: 6px 15px !important;
+    border-radius: 7px;
+    background: #005E0D;
+}
+.btn-pagar{
+    --background: #00B522;
+    margin: 0px auto;
+    display: block;
+    padding: 0px 50px;
+}
+
+.textprodpagat{
+    padding: 0px 33px;
+}
+
+ion-footer {
+    padding: 22px 0px;
+    background: #fff;
+}
+.total-price{
+    margin-top: 5px;
+    display: block;
+}
+.total-price span{
+    display: flex;
+    float: left;
+    justify-content: left;
+    font-family: 'antoniobold';
+}
+.pedidos{
+    width: 89.2857142857%;
+    margin-left: 5.3571428571%;
+    height: 6.6666666667vh;
+    background: #141414;
+    display: flex;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-family: 'antoniobold';
+}
+.verde{
+    color: #55B833;
+    margin-left: 5px;
+}
+
+.desc p{
+    font-size: 13px;
+    margin-left: 10px;
+}

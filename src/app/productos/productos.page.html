@@ -1,0 +1,52 @@
+<ion-content [fullscreen]="true">
+  <img routerLink="/tabs/tab1"  class="icono_back_page" src="/assets/img/backpage.png" alt="">
+  <img src="{{ bannerStore }}" style="width: 100%;" alt="">
+  <ion-searchbar 
+        placeholder="¿Qué estás buscando?"
+        [(ngModel)]="searchData"
+        (search)="search()"
+        (inputmode)="search"></ion-searchbar>
+        <div class="negocio">
+          <div class="imagen_empresa">
+            <img src="{{ tienda.logo }}" alt="">
+          </div>
+          <div class="desc_empresa">
+            <p><strong>{{ tienda.nombre }}</strong><br><span>{{ tienda.direccion }}</span></p>
+            <p>{{ tienda.tiempo_entrega }} - Envío S/{{tienda.precio_entrega }}</p>
+          </div>
+          <div class="compartir_empresa">
+            <div>
+              <img src="assets/img/to_share.png" alt="">
+              <span>Compartir</span>
+            </div>
+          </div>
+        </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="producto" *ngFor="let producto of productos">
+          <div class="imagen">
+            <img class="boxImagen" src="{{ media+producto.imagen }}">
+          </div>
+          <div class="descripcion">
+            <p routerLink="/producto/{{producto.id}}" class="ppp_33"><strong>{{ producto.titulo }}</strong></p>
+
+            <p class="dscprecio"><span>S/{{ producto.precio }}</span>
+              <span *ngIf="producto.descuento > 0" >- S/{{ producto.descuento }}</span>
+              <span *ngIf="producto.descuento > 0" class="descuento_box">- {{ ( producto.descuento / (producto.precio / 100)) }}%
+              </span>
+            </p>
+          </div>
+          <div class="addcart">
+            <a class="btn-addcar"  routerLink="/producto/{{producto.id}}">
+              agragar
+            </a>
+          </div>
+        </div>
+        <p *ngIf="productos.length == 0" >No hay productos</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--  -->
+</ion-content>

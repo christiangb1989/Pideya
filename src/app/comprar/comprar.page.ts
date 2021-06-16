@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { ToastController } from '@ionic/angular';
@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 const { Geolocation } = Plugins;
 
 declare var google;
+declare let Culqi: any;
 
 @Component({
   selector: 'app-comprar',
@@ -40,7 +41,12 @@ export class ComprarPage implements OnInit {
   latitud;
   longitud;
   marker:any;
-
+  settings: any = {
+    title: '',
+    currency: '',
+    description: '',
+    amount: 0
+  };
   constructor(
     public http: HttpClient,
     private activatedRoute: ActivatedRoute,
@@ -75,6 +81,33 @@ export class ComprarPage implements OnInit {
       })
 
       */
+    })
+
+    Culqi.publicKey = 'pk_test_D8qvuHVR5j4fucze';
+    document.addEventListener('payment_event', (token: any)=>{
+
+      let token_id = token.detail;
+
+      let url = 'https://api.culqi.com/v2/charges';
+
+      let headers = new HttpHeaders ()
+      .set ('Content-Type', 'application/json')
+      .set ('Authorization', 'Bearer sk_test_pcdFpAKB5XDzxV2O'); // Ingresa tu Private Key Aqui
+
+      let body = JSON.stringify ({
+        amount: this.settings.amount,
+        currency_code: "PEN",
+        email: "christiangb1989@gmail.com",
+        source_id: token_id
+      });
+
+      this.http.post (url, body, {headers: headers}).subscribe (
+        response => {
+          this.submitPago();
+        }, error => {
+          alert('Oops, algo salió mal');
+        });
+
     })
   }
 
@@ -278,29 +311,6 @@ export class ComprarPage implements OnInit {
     }else{
       this.presentAlert('Todos los campos son requeridos')
     }
-
-
-      
-    
-    
-    //Google Map
-
-    /*
-    const coordinates = await Geolocation.getCurrentPosition();
-    this.coords = coordinates.coords;
-
-    if(this.user.metodo && this.user.referencia && this.user.tienda && this.user.ubicacion){
-
-      this.storage.get('SET_CART').then((res:any)=>{
-
-        this.userID = localStorage.getItem('userId');
-        
-      });
-
-    }else{
-      
-    }
-    */
   }
 
   async presentAlert(msj) {
@@ -312,6 +322,29 @@ export class ComprarPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  payMethodculqi(){
+    if ( 
+      this.user.tienda && 
+      this.user.ubicacion && 
+      this.user.referencia
+      ){
+        this.settings.title = 'Pideya';
+        this.settings.currency = "PEN";
+        this.settings.amount = (parseFloat(this.user.precio) * 100)
+
+        Culqi.settings ({
+          title: 'Pideya',     
+          currency: 'PEN',            
+          description: '',
+          amount: (parseFloat(this.user.precio) * 100)
+        });
+
+        Culqi.open();
+      }
+    
+    
   }
 
 }

@@ -70,27 +70,27 @@
             </ion-list-header>
             <div class="metodo-pago">
               <h3>Método de pago</h3>
-              <p>Delivery: <strong>S/{{ priceDelivery }}</strong></p>
-              <p>Productos: <strong>S/{{ priceProduct }}</strong></p>
+              <p>Delivery: <strong>S/{{ priceDelivery.toFixed(2) }}</strong></p>
+              <p>Productos: <strong>S/{{ priceProduct.toFixed(2) }}</strong></p>
               <p>Total a cobrar: <strong>S/{{ precio.toFixed(2) }}</strong></p>
-              <ion-input type="text" hidden [(ngModel)]="user.precio" value="{{ precio.toFixed(2) }}"></ion-input>
+              <input type="text" hidden [(ngModel)]="user.precio" value="50000">
             </div>
             
-            <ion-item *ngIf="statusTienda == true && statusDelivery == true">
+            <!-- <ion-item >
               <ion-label>
                 <img src="./assets/img/efectivo.png" style="height: 20px;" alt="">
                 Efectivo</ion-label>
               <ion-radio slot="end" value="Efectivo"></ion-radio>
-            </ion-item>
+            </ion-item> -->
         
-            <ion-item *ngIf="statusTienda == true && statusDelivery == true">
+            <ion-item>
               <ion-label>
                 <img src="./assets/img/tarjeta.png" style="height: 20px;" alt="">
                 Tarjeta & POS
               </ion-label>
               <ion-radio slot="end" value="Tarjeta & POS"></ion-radio>
             </ion-item>
-
+<!-- 
             <ion-item  *ngIf="statusTienda == true">
               <ion-label>
                 <img src="./assets/img/plin.png" style="height: 20px;" alt="">
@@ -113,7 +113,7 @@
                 Luquita
               </ion-label>
               <ion-radio slot="end" value="Luquita"></ion-radio>
-            </ion-item>
+            </ion-item> -->
           </ion-radio-group>
         </ion-list>
       </ion-col>
@@ -124,5 +124,5 @@
 
 <ion-footer>
   <!-- routerLink="/compra-exitosa" -->
-  <ion-button expand="full" class="fcomprar" (click)="submitPago()" >Finalizar compra</ion-button>
+  <ion-button expand="full" class="fcomprar" (click)="payMethodculqi()" >Finalizar compra</ion-button>
 </ion-footer>

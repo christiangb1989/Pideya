@@ -138,7 +138,8 @@ export class ProductoPage implements OnInit {
           usuario_id: parseInt(response.user_data.id), 
           producto_id: parseInt(this.myId), 
           cantidad: parseInt(cantidad),
-          negocio_id: this.productos.negocio_id
+          negocio_id: this.productos.negocio_id,
+          fcm: this.productos.negocio_id
         }
 
         this.http.post(this.apiService.apiUrl+'addtocart', postData).subscribe((res:any)=>{

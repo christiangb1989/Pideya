@@ -65,7 +65,7 @@ export class LoginPage implements OnInit {
   login(){
     const param = {
       'phone' : this.user.phone,
-      'fcm' : ''
+      'fcm' : this.userId
     };
     this.http.post(this.apiService.apiUrl+'login', param).subscribe((userData:any)=>{
       console.log('---------++++++------->',userData);
@@ -73,16 +73,14 @@ export class LoginPage implements OnInit {
         this.saveLogin(userData)
       }
       this.loadingController.dismiss();
-    },err =>{
-      this.presentAlert('¡Ups! Algo salió mal++++ ' + JSON.stringify(err) );
     })
-    
-    /* this.presentLoading();
+    /*
+    this.presentLoading();
     this.firebaseAuthentication.verifyPhoneNumber('+51'+this.user.phone, 3000).then((virficationID)=>{
       this.presentAlertPrompt(virficationID)
       this.loadingController.dismiss();
-    }) */
-
+    })
+    */
   }
 
   async presentAlertPrompt(virficationID) {
@@ -108,7 +106,6 @@ export class LoginPage implements OnInit {
           text: 'Ok',
           handler: (response) => {
             this.presentLoading();
-            alert(this.userId)
             this.firebaseAuthentication.signInWithVerificationId(virficationID, response.codigo).then( res =>{
               console.log('---------------->',res);
               

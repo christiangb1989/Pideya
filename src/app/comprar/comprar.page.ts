@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { AlertController } from '@ionic/angular';
+import { NotificacionService } from '../service/notificacion.service';
 const { Geolocation } = Plugins;
 
 declare var google;
@@ -55,10 +56,11 @@ export class ComprarPage implements OnInit {
     public toastController: ToastController,
     private apiService: ApiService,
     private nativeGeocoder: NativeGeocoder,
-    public alertController: AlertController
+    public alertController: AlertController,
+    public NotificacionService:NotificacionService
   ) { 
 
-
+    
   }
   tarifaBase = null;
   precioXkm = null;
@@ -66,21 +68,21 @@ export class ComprarPage implements OnInit {
   subtotal = null;
 
   ngOnInit() {
+    /* this.userID = localStorage.getItem('userId');
+    this.http.get(this.apiService.apiUrl+'showcart/'+ this.userID ).subscribe((res:any)=>{
+      console.log('producto----------->',res.producto_cart);
+      
+      this.cart_data = res.producto_cart;
+    })
+ */
+
     this.userID = localStorage.getItem('userId');
     this.storage.get('SET_CART').then( (res:any) =>{
       console.log('show_cart:....', res);
       this.locate(res)
       this.cart_data = res;
-      /*
-      this.cart_data = res;
-      console.log('details cart', res.productoId);
-      
-      this.http.get(this.apiService.apiUrl +'producto/'+res.productoId).subscribe((data:any)=>{
-        console.log('details producto', data.negocio.telefono);
-        this.celular = data.negocio.telefono;
-      })
+     
 
-      */
     })
 
     Culqi.publicKey = 'pk_test_D8qvuHVR5j4fucze';
@@ -271,7 +273,7 @@ export class ComprarPage implements OnInit {
 
 
   async submitPago(){
-
+    
     let carrito = this.cart_data;
     console.log(carrito)
 
@@ -300,8 +302,21 @@ export class ComprarPage implements OnInit {
       this.user.ubicacion && 
       this.user.referencia
       ) {
+
       this.http.post(this.apiService.apiUrl+"toBuy", params).subscribe((res:any)=>{
+        let hash = {};
+        let pedido = carrito.filter((current)=> {
+          let exists = !hash[current.fcm]
+          hash[current.fcm] = true;
+          return exists;
+        });
+        pedido.forEach(element => {
+          this.NotificacionService.sendNotification('Has recibido un nuevo pedido.', 'Nuevo pedido recibido', element.fcm);
+        });
+        
+        
         this.storage.remove('SET_CART')
+        this.user.precio = 0
           this.http.get(this.apiService.apiUrl+ "delete/cart/" + this.userID).subscribe(()=>{
             this.router.navigate(['/compra-exitosa']);
           })
@@ -325,6 +340,8 @@ export class ComprarPage implements OnInit {
   }
 
   payMethodculqi(){
+    //alert(this.precio)
+    //return;
     if ( 
       this.user.tienda && 
       this.user.ubicacion && 
@@ -332,16 +349,18 @@ export class ComprarPage implements OnInit {
       ){
         this.settings.title = 'Pideya';
         this.settings.currency = "PEN";
-        this.settings.amount = (parseFloat(this.user.precio) * 100)
+        this.settings.amount = (this.precio * 100)
 
         Culqi.settings ({
           title: 'Pideya',     
           currency: 'PEN',            
-          description: '',
-          amount: (parseFloat(this.user.precio) * 100)
+          description: 'Pedido',
+          amount: (this.precio * 100)
         });
 
         Culqi.open();
+      }else{
+        this.presentAlert('Todos los campos son requeridos')
       }
     
     

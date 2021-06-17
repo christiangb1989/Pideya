@@ -9,6 +9,7 @@ import { Plugins } from '@capacitor/core';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { AlertController } from '@ionic/angular';
 import { NotificacionService } from '../service/notificacion.service';
+import { LoadingController } from '@ionic/angular';
 const { Geolocation } = Plugins;
 
 declare var google;
@@ -56,6 +57,7 @@ export class ComprarPage implements OnInit {
     public toastController: ToastController,
     private apiService: ApiService,
     private nativeGeocoder: NativeGeocoder,
+    public loadingController: LoadingController,
     public alertController: AlertController,
     public NotificacionService:NotificacionService
   ) { 
@@ -69,8 +71,10 @@ export class ComprarPage implements OnInit {
 
   ngOnInit() {
     this.userID = localStorage.getItem('userId');
+    console.log('ID ',this.userID);
+    
     this.http.get(this.apiService.apiUrl+'showcart/'+ this.userID ).subscribe((res:any)=>{
-      //console.log('producto----------->',res.producto_cart);
+      console.log('producto----------->',res.producto_cart);
       
       this.cart_data = res.producto_cart;
       this.locate(res.producto_cart)
@@ -266,7 +270,7 @@ export class ComprarPage implements OnInit {
 
 
   async submitPago(){
-    
+    this.presentLoading()
     let carrito = this.cart_data;
 
     //return carrito;
@@ -316,9 +320,10 @@ export class ComprarPage implements OnInit {
         
         this.storage.remove('SET_CART')
         this.user.precio = 0
-          this.http.get(this.apiService.apiUrl+ "delete/cart/" + this.userID).subscribe(()=>{
-            this.router.navigate(['/compra-exitosa']);
-          })
+        this.http.get(this.apiService.apiUrl+ "delete/cart/" + this.userID).subscribe(()=>{
+          this.router.navigate(['/compra-exitosa']);
+        })
+        this.loadingController.dismiss();
       }, err =>{
         this.presentAlert('¡Ups! Algo salió mal')
       })  
@@ -366,4 +371,15 @@ export class ComprarPage implements OnInit {
     
   }
 
+  async presentLoading() {
+    const loading = await this.loadingController.create({
+      cssClass: 'my-custom-class',
+      message: 'cargando...',
+      duration: 10000
+    });
+    await loading.present();
+
+    const { role, data } = await loading.onDidDismiss();
+    console.log('Loading dismissed!');
+  }
 }

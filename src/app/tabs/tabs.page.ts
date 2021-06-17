@@ -21,6 +21,7 @@ export class TabsPage {
 
   
   salir(){
+    localStorage.clear();
     this.authService.logout();
   }
 }

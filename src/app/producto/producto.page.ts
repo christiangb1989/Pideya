@@ -7,6 +7,7 @@ import { ApiService } from '../api.service';
 import { HttpClient } from '@angular/common/http';
 import { AlertController } from '@ionic/angular';
 import { Location } from '@angular/common';
+import { PedidosPage } from '../pedidos/pedidos.page';
 
 
 @Component({
@@ -18,8 +19,8 @@ export class ProductoPage implements OnInit {
   productos:any = {};
   tienda:any = {};
   producto_gallery:any = []
-  talla:any = []
-  color:any = []
+  talla;
+  color;
   myId = null;
   _select_talla;
   _select_color;
@@ -32,11 +33,14 @@ export class ProductoPage implements OnInit {
     public toastController: ToastController,
     private  apiService: ApiService,
     public alertController: AlertController,
-    private location:Location
+    private location:Location,
+    public pedido:PedidosPage
   ) { 
     this.media = this.apiService.media
     this.myId = this.activatedRoute.snapshot.paramMap.get('id');
     this.http.get(this.apiService.apiUrl+'producto/'+ this.myId ).subscribe((res:any)=>{
+      console.log(res.producto);
+      
       this.productos = res.producto;
       this.tienda = res.negocio;
     })
@@ -147,7 +151,9 @@ export class ProductoPage implements OnInit {
           }else{
             this.presentAlert(res.respuesta)
           }
+          this.pedido.loading();
           this.router.navigate(['pedidos/'+response.user_data.id]);
+          
         })
 
       }else{

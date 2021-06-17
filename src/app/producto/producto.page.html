@@ -18,28 +18,27 @@
   <h3>{{ productos.titulo }}</h3>
   <p>{{ productos.descripcion }}</p>
   <p class="dscprecio" >
-    <span *ngIf="!productos.descuento" >S/{{ productos.precio }}</span>
-    <span style="text-decoration: line-through;" *ngIf="productos.descuento" >S/{{ productos.precio }}</span>
-    <span *ngIf="productos.descuento > 0" > - S/{{ (productos.precio - productos.descuento).toFixed(2) }}</span>
-    <span *ngIf="productos.descuento > 0" class="descuento_box">{{ ( productos.descuento / (productos.precio / 100)) }}%</span>
+    <span *ngIf="productos.descuento == '0.00'" >S/{{ productos.precio }}</span>
+    <span style="text-decoration: line-through;" *ngIf="!productos.descuento || productos.descuento != '0.00'" >S/{{ productos.precio }}</span>
+    <span *ngIf="productos.descuento && productos.descuento != '0.00'" > - S/{{ (productos.precio - productos.descuento).toFixed(2) }}</span>
+    <span *ngIf="productos.descuento && productos.descuento != '0.00'" class="descuento_box">{{ ( productos.descuento / (productos.precio / 100)) }}%</span>
   </p>
   <div class="detalles">
     <div class="atributos">
-      
-      <div *ngIf="color" >
+      <div *ngIf="productos.color" >
         <p>Color</p>
         <div class="color">
-          <div (click)="selectColor(item.color)" class="selectColor" [ngStyle]="{'background': item.color}" *ngFor="let item of color">
-            <ion-icon name="checkmark-outline" *ngIf="_select_talla == item.color" ></ion-icon>
+          <div (click)="selectColor(item)" class="selectColor" [ngStyle]="{'background': item}" *ngFor="let item of productos.color">
+            <ion-icon name="checkmark-outline" *ngIf="_select_talla == item" ></ion-icon>
           </div>
         </div>
       </div>
-      <div *ngIf="talla" >
+      <div *ngIf="productos.talla" >
         <p>Talla</p>
         <div class="talla">
-          <div (click)="selectTalla(item.talla)" class="selectTalla" *ngFor="let item of talla">
-            {{ item.talla }}
-            <ion-icon name="checkmark-outline" *ngIf="_select_color == item.talla" ></ion-icon>
+          <div (click)="selectTalla(item)" class="selectTalla" *ngFor="let item of productos.talla">
+            {{ item }}
+            <ion-icon name="checkmark-outline" *ngIf="_select_color == item" ></ion-icon>
           </div>
         </div>
       </div>

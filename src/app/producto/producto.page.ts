@@ -37,12 +37,7 @@ export class ProductoPage implements OnInit {
     this.media = this.apiService.media
     this.myId = this.activatedRoute.snapshot.paramMap.get('id');
     this.http.get(this.apiService.apiUrl+'producto/'+ this.myId ).subscribe((res:any)=>{
-      console.log('producto ',res.producto);
-      
       this.productos = res.producto;
-      this.producto_gallery = JSON.parse(res.producto.galeria);
-      this.color = JSON.parse(res.producto.color);
-      this.talla = JSON.parse(res.producto.talla);
       this.tienda = res.negocio;
     })
   }
@@ -129,6 +124,9 @@ export class ProductoPage implements OnInit {
   }
 
   addtocart(){
+
+    //return console.log(this.tienda.fcm);
+     
     const cantidad = document.getElementById('count').innerText;
     this.storage.get('USER_INFO').then((response) => {
       //Existe datos
@@ -139,7 +137,7 @@ export class ProductoPage implements OnInit {
           producto_id: parseInt(this.myId), 
           cantidad: parseInt(cantidad),
           negocio_id: this.productos.negocio_id,
-          fcm: this.productos.negocio_id
+          fcm: this.tienda.fcm
         }
 
         this.http.post(this.apiService.apiUrl+'addtocart', postData).subscribe((res:any)=>{

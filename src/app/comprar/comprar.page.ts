@@ -68,21 +68,12 @@ export class ComprarPage implements OnInit {
   subtotal = null;
 
   ngOnInit() {
-    /* this.userID = localStorage.getItem('userId');
+    this.userID = localStorage.getItem('userId');
     this.http.get(this.apiService.apiUrl+'showcart/'+ this.userID ).subscribe((res:any)=>{
-      console.log('producto----------->',res.producto_cart);
+      //console.log('producto----------->',res.producto_cart);
       
       this.cart_data = res.producto_cart;
-    })
- */
-
-    this.userID = localStorage.getItem('userId');
-    this.storage.get('SET_CART').then( (res:any) =>{
-      console.log('show_cart:....', res);
-      this.locate(res)
-      this.cart_data = res;
-     
-
+      this.locate(res.producto_cart)
     })
 
     Culqi.publicKey = 'pk_test_D8qvuHVR5j4fucze';
@@ -223,6 +214,8 @@ export class ComprarPage implements OnInit {
 
   priceDelivery = 0.00;
   priceProduct = 0.00;
+
+
   getDragAddress(event) {
     this.priceDelivery = 0.00;
     this.priceProduct = 0.00;
@@ -275,7 +268,6 @@ export class ComprarPage implements OnInit {
   async submitPago(){
     
     let carrito = this.cart_data;
-    console.log(carrito)
 
     //return carrito;
     let params = {
@@ -310,10 +302,17 @@ export class ComprarPage implements OnInit {
           hash[current.fcm] = true;
           return exists;
         });
+
         pedido.forEach(element => {
           this.NotificacionService.sendNotification('Has recibido un nuevo pedido.', 'Nuevo pedido recibido', element.fcm);
         });
         
+        this.user.metodo = ''
+        this.user.tienda = ''
+        this.user.referencia = ''
+        this.priceDelivery = 0.00
+        this.priceProduct = 0.00
+        this.precio = 0.00
         
         this.storage.remove('SET_CART')
         this.user.precio = 0
@@ -340,8 +339,9 @@ export class ComprarPage implements OnInit {
   }
 
   payMethodculqi(){
-    //alert(this.precio)
-    //return;
+    
+    //return console.log('carrito---->',this.cart_data);
+  
     if ( 
       this.user.tienda && 
       this.user.ubicacion && 

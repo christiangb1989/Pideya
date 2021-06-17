@@ -80,25 +80,19 @@
         <ion-slides [options]="slideOptsStoreDistance" >
           
           <ion-slide  *ngFor="let item of nearbyShops">
-            <div class="content_box">
-              <div class="col_box_1">
-                <img  routerLink="/tabs/store/products/{{ item.id }}" src="{{ media+item.logo }}" >
-              </div>
-              <div class="col_box_2">
-                <div><b>{{ item.nombre }}</b></div>
-                <div style="font-size: 9px;">{{ item.direccion }}</div>
-                <div></div>
-              </div>
-              <div class="col_box_3">
-                <div>
-                  <a target="_blank" href="http://www.google.com/maps/place/{{ item.lat }},{{ item.long }}">
-                    <img src="/assets/img/go_to_store.png" alt="">
-                    <span>Ir a tienda</span>
-                  </a>
-                  
+            <ion-card>
+              <ion-card-content style="display: flex; padding: 10px;" routerLink="/tabs/store/products/{{ item.id }}">
+                <div class="col_box_1">
+                  <img  src="{{ media+item.logo }}" >
                 </div>
-              </div>
-            </div>
+                <div class="col_box_2">
+                  <div style="text-transform: capitalize;"><b>{{ item.nombre }}</b></div>
+                  <div style="font-size: 14px; text-transform: capitalize;">{{ item.direccion }}</div>
+                  <div></div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+            
           </ion-slide>
 
         </ion-slides>

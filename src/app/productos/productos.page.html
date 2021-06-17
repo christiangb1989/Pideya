@@ -24,25 +24,24 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div class="producto" *ngFor="let producto of productos">
-          <div class="imagen">
-            <img class="boxImagen" src="{{ media+producto.imagen }}">
-          </div>
-          <div class="descripcion">
-            <p routerLink="/producto/{{producto.id}}" class="ppp_33"><strong>{{ producto.titulo }}</strong></p>
-
-            <p class="dscprecio"><span>S/{{ producto.precio }}</span>
-              <span *ngIf="producto.descuento > 0" >- S/{{ producto.descuento }}</span>
-              <span *ngIf="producto.descuento > 0" class="descuento_box">- {{ ( producto.descuento / (producto.precio / 100)) }}%
-              </span>
-            </p>
-          </div>
-          <div class="addcart">
-            <a class="btn-addcar"  routerLink="/producto/{{producto.id}}">
-              agragar
-            </a>
-          </div>
-        </div>
+        <ion-card *ngFor="let producto of productos">        
+          <ion-card-content style="display: flex;padding: 10px;">
+            <div class="imagen">
+              <img class="boxImagen" src="{{ media+producto.imagen }}">
+            </div>
+            <div class="descripcion">
+              <p routerLink="/producto/{{producto.id}}" class="ppp_33"><strong>{{ producto.titulo }}</strong></p>
+  
+              <p class="dscprecio"><span>S/{{ producto.precio }}</span>
+                <span *ngIf="producto.descuento > 0" >- S/{{ producto.descuento }}</span>
+                <span *ngIf="producto.descuento > 0" class="descuento_box">- {{ ( producto.descuento / (producto.precio / 100)) }}%
+                </span>
+              </p>
+              <ion-button size="small" class="colorBtn"  routerLink="/producto/{{producto.id}}" color="light">Agragar</ion-button>
+            </div>
+          
+          </ion-card-content>
+        </ion-card>
         <p *ngIf="productos.length == 0" >No hay productos</p>
       </ion-col>
     </ion-row>

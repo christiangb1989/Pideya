@@ -2,10 +2,10 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { TabsPageRoutingModule } from './tabs-routing.module';
-
 import { TabsPage } from './tabs.page';
+import { NavComponent } from '../component/nav/nav.component';
+
 
 @NgModule({
   imports: [
@@ -13,7 +13,8 @@ import { TabsPage } from './tabs.page';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule
+    
   ],
-  declarations: [TabsPage]
+  declarations: [TabsPage, NavComponent]
 })
 export class TabsPageModule {}

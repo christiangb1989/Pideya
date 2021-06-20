@@ -76,20 +76,30 @@
     <ion-row>
       <ion-col><h3 class="title_puntos">Tiendas Cercanas</h3></ion-col>
     </ion-row>
-    <ion-row>
+    <ion-row style="margin-bottom: 30px;">
       <ion-col>
         <ion-slides [options]="slideOptsStoreDistance" >
           
           <ion-slide  *ngFor="let item of nearbyShops">
             <ion-card>
-              <ion-card-content style="display: flex; padding: 10px;" routerLink="/tabs/store/products/{{ item.id }}">
+              <ion-card-content style="display: flex; padding: 10px;">
                 <div class="col_box_1">
                   <img  src="{{ media+item.logo }}" >
                 </div>
-                <div class="col_box_2">
+                <div class="col_box_2" style="width: 45%;">
                   <div style="text-transform: capitalize;"><b>{{ item.nombre }}</b></div>
-                  <div style="font-size: 14px; text-transform: capitalize;">{{ item.direccion }}</div>
+                  <div style="font-size: 10px; text-transform: capitalize;">{{ item.direccion }}</div>
                   <div></div>
+                </div>
+                <div style="display: flex; width: 25%;" class="shared">
+                    <div routerLink="/tabs/store/products/{{ item.id }}">
+                      <img src="/assets/img/go_to_store.png" style="width: 15px;" sy alt="" srcset="">
+                      <p style="font-size: 9px;">Ir a tienda</p>
+                    </div>
+                    <div>
+                      <img src="/assets/img/to_share.png" style="width: 15px;" alt="" srcset="">
+                      <p style="font-size: 9px;">Compartir</p>
+                    </div>
                 </div>
               </ion-card-content>
             </ion-card>

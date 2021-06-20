@@ -63,24 +63,24 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/'])
   }
   login(){
-    const param = {
-      'phone' : this.user.phone,
-      'fcm' : this.userId
-    };
-    this.http.post(this.apiService.apiUrl+'login', param).subscribe((userData:any)=>{
-      console.log('---------++++++------->',userData);
-      if (userData.status) {
-        this.saveLogin(userData)
-      }
-      this.loadingController.dismiss();
-    })
-    /*
+    // const param = {
+    //   'phone' : this.user.phone,
+    //   'fcm' : this.userId
+    // };
+    // this.http.post(this.apiService.apiUrl+'login', param).subscribe((userData:any)=>{
+    //   console.log('---------++++++------->',userData);
+    //   if (userData.status) {
+    //     this.saveLogin(userData)
+    //   }
+    //   this.loadingController.dismiss();
+    // })
+    
     this.presentLoading();
     this.firebaseAuthentication.verifyPhoneNumber('+51'+this.user.phone, 3000).then((virficationID)=>{
       this.presentAlertPrompt(virficationID)
       this.loadingController.dismiss();
     })
-    */
+    
   }
 
   async presentAlertPrompt(virficationID) {

@@ -151,3 +151,10 @@ h3{
 .col_box_3 span{
     font-size: 8px;
 }
+
+.shared{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    justify-content: space-between;
+}

@@ -7,10 +7,10 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item lines="full" routerLink="/tabs/tab1"><ion-icon name="home-outline" style="margin-right: 10px;"></ion-icon> Inicio</ion-item>
-        <ion-item lines="full"><ion-icon name="person-circle-outline" style="margin-right: 10px;"></ion-icon> Perfil</ion-item>
-        <ion-item lines="full"><ion-icon name="help-circle-outline" style="margin-right: 10px;"></ion-icon> Ayuda</ion-item>
-        <ion-item lines="full"><ion-icon name="share-social-outline" style="margin-right: 10px;"></ion-icon> Compartir</ion-item>
+        <ion-item lines="full" routerLink="/tabs/tab1" (click)="openEnd()"><ion-icon name="home-outline" style="margin-right: 10px;"></ion-icon> Inicio</ion-item>
+        <ion-item lines="full" routerLink="/tabs/profile" (click)="openEnd()"><ion-icon name="person-circle-outline" style="margin-right: 10px;"></ion-icon> Perfil</ion-item>
+        <ion-item lines="full" routerLink="/tabs/ayuda" (click)="openEnd()"><ion-icon name="help-circle-outline" style="margin-right: 10px;"></ion-icon> Ayuda</ion-item>
+        <ion-item lines="full" (click)="compartir()"><ion-icon name="share-social-outline" style="margin-right: 10px;"></ion-icon> Compartir</ion-item>
         <ion-item lines="full" (click)="salir()"><ion-icon name="power-outline" style="margin-right: 10px;"></ion-icon> Salir</ion-item>
       </ion-list>
     </ion-content>

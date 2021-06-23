@@ -7,18 +7,18 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:468567793700:android:db1bfd1e37c52c321938b1",
+        "mobilesdk_app_id": "1:468567793700:android:dd68b6ced1d7b3011938b1",
         "android_client_info": {
           "package_name": "com.yamarketapp.orivalenty"
         }
       },
       "oauth_client": [
         {
-          "client_id": "468567793700-t9ce139dehkpbltnluu5fisk5717l190.apps.googleusercontent.com",
+          "client_id": "468567793700-rv5q7bgns20eickbl3j7vud0ul75s3og.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.yamarketapp.orivalenty",
-            "certificate_hash": "143e3f06dab96db25962eb9e60800d08ae9d74b5"
+            "certificate_hash": "e3e32fe457990edee07db2b06d48b4e9ccacc497"
           }
         },
         {

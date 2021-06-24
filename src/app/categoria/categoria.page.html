@@ -5,7 +5,7 @@
   
   <div class="tienda" *ngFor="let negocio of storeList">
     <div class="col_1">
-      <img class="logo_tienda" src="{{ negocio.logo }}">
+      <img class="logo_tienda"  routerLink="/tabs/store/products/{{ negocio.id }}"  src="{{ media+negocio.logo }}">
     </div>
     <div class="col_2">
       <h3 style="font-size: 15px; font-weight: 600;">{{ negocio.nombre }}</h3>
@@ -13,11 +13,14 @@
     </div>
     <div class="col_3">
       <div class="box-share">
-        <div class="box_go_to_store" routerLink="/tabs/store/products/{{ negocio.id }}">
-          <img src="/assets/img/go_to_store.png" class="go_to_store" alt="">
-          <p class="go_to_store_text">Ir a tienda</p>
+        <div class="box_go_to_store">
+          <a href="https://www.google.com/maps/search/?api=1&query={{ negocio.lat }}%2C{{ negocio.long }}" style="text-decoration: none; color: initial;">
+            <img src="/assets/img/go_to_store.png" class="go_to_store" alt="">
+            <p class="go_to_store_text">Ir a tienda</p>
+          </a>
+          
         </div>
-        <div class="box_go_to_store" (click)="compartir()">
+        <div class="box_go_to_store" (click)="compartir(media+negocio.logo, negocio.id)">
           <img src="/assets/img/to_share.png" class="go_to_store" alt="">
           <p class="go_to_store_text">Compartir</p>
         </div>

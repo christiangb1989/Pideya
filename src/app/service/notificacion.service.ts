@@ -28,8 +28,10 @@ export class NotificacionService {
     this.oneSignal.getIds().then( info =>{
       this.userId = info.userId;
     })
+
     this.oneSignal.endInit();
   }
+
   test(msg, title, id){
       alert(id)
       console.log(typeof id);

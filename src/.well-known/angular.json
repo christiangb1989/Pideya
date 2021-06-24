@@ -1,0 +1,5 @@
+{
+    "glob": "**/*",
+    "input": "src/.well-known",
+    "output": ".well-known/"
+}

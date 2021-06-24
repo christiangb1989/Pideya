@@ -34,8 +34,7 @@ export class LoginPage implements OnInit {
     public NotificacionService:NotificacionService
     ) {
       
-      this.userId = this.NotificacionService.userId;
-      //alert(this.userId);
+      
       this.storage.get('USER_INFO').then((response)=>{
         if(response){
           this.router.navigate(['/tabs/tab1']);
@@ -74,7 +73,7 @@ export class LoginPage implements OnInit {
     //   }
     //   this.loadingController.dismiss();
     // })
-    
+  
     this.presentLoading();
     this.firebaseAuthentication.verifyPhoneNumber('+51'+this.user.phone, 3000).then((virficationID)=>{
       this.presentAlertPrompt(virficationID)
@@ -84,7 +83,7 @@ export class LoginPage implements OnInit {
   }
 
   async presentAlertPrompt(virficationID) {
-
+    this.userId =  await this.NotificacionService.userId;
     const prompt = await this.alertController.create({
       cssClass: 'my-custom-class',
       header: 'Ingresar código',
@@ -111,8 +110,8 @@ export class LoginPage implements OnInit {
               
               if(res === 'OK'){
                 const param = {
-                  'phone' : this.user.phone,
-                  'fcm' : this.userId
+                  phone : this.user.phone,
+                  fcm : this.userId
                 };
                 this.http.post(this.apiService.apiUrl+'login', param).subscribe((userData:any)=>{
                   console.log('---------++++++------->',userData);

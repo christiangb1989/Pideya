@@ -78,6 +78,11 @@ export class Tab1Page {
     private routerOutlet: IonRouterOutlet
     ) 
   {
+    this.platform.backButton.subscribeWithPriority(-1, () => {
+      if (!this.routerOutlet.canGoBack()) {
+        App.exitApp();
+      }
+    });
     this.locate();
     this.getMall();
     this.getBanner();
@@ -232,7 +237,7 @@ export class Tab1Page {
     })
   }
 
-  compartir(imagen){
-    this.socialSharing.share(null, null, imagen, 'https://play.google.com/store/apps/details?id=com.yamarketapp.orivalenty')
+  compartir(imagen, id){
+    this.socialSharing.share(' Descar nuestra app https://play.google.com/store/apps/details?id=com.yamarketapp.orivalenty y si ya la tienes, visita nuestra tienda', null, imagen, 'https://app.pideya.com.pe/tabs/store/products/'+id)
   }
 } 

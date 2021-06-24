@@ -84,7 +84,7 @@
             <ion-card>
               <ion-card-content style="display: flex; padding: 10px;">
                 <div class="col_box_1">
-                  <img  src="{{ media+item.logo }}" >
+                  <img  src="{{ media+item.logo }}"  routerLink="/tabs/store/products/{{ item.id }}">
                 </div>
                 <div class="col_box_2" style="width: 45%;">
                   <div style="text-transform: capitalize;"><b>{{ item.nombre }}</b></div>
@@ -92,11 +92,13 @@
                   <div></div>
                 </div>
                 <div style="display: flex; width: 25%;" class="shared">
-                    <div routerLink="/tabs/store/products/{{ item.id }}">
-                      <img src="/assets/img/go_to_store.png" style="width: 15px;" sy alt="" srcset="">
-                      <p style="font-size: 9px;">Ir a tienda</p>
-                    </div>
                     <div>
+                      <a href="https://www.google.com/maps/search/?api=1&query={{ item.lat }}%2C{{ item.long }}" style="text-decoration: none;">
+                        <img src="/assets/img/go_to_store.png" style="width: 15px;" sy alt="" srcset="">
+                        <p style="font-size: 9px;">Ir a tienda</p>
+                      </a>
+                    </div>
+                    <div (click)="compartir(media+item.logo)">
                       <img src="/assets/img/to_share.png" style="width: 15px;" alt="" srcset="">
                       <p style="font-size: 9px;">Compartir</p>
                     </div>

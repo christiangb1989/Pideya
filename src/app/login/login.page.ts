@@ -122,6 +122,7 @@ export class LoginPage implements OnInit {
                   this.loadingController.dismiss();
                 },err =>{
                   this.presentAlert('¡Ups! Algo salió mal++++ ' + JSON.stringify(err) );
+                  this.loadingController.dismiss();
                 })
               }else{
                 this.presentAlert('Código incorrecto!');

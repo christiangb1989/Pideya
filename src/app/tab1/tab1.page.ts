@@ -8,6 +8,10 @@ import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@io
 import { LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AlertController } from '@ionic/angular';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { IonRouterOutlet, Platform } from '@ionic/angular';
+const { App } = Plugins;
+
 const { Geolocation } = Plugins;
 declare var google;
 @Component({
@@ -68,7 +72,10 @@ export class Tab1Page {
     private storage:Storage,
     public alertController: AlertController,
     private nativeGeocoder: NativeGeocoder,
-    public loadingController: LoadingController
+    public loadingController: LoadingController,
+    private socialSharing: SocialSharing,
+    private platform: Platform,
+    private routerOutlet: IonRouterOutlet
     ) 
   {
     this.locate();
@@ -225,4 +232,7 @@ export class Tab1Page {
     })
   }
 
-}
+  compartir(imagen){
+    this.socialSharing.share(null, null, imagen, 'https://play.google.com/store/apps/details?id=com.yamarketapp.orivalenty')
+  }
+} 

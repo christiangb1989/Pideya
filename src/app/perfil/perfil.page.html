@@ -4,20 +4,28 @@
   </a>
   <h1>Mi perfil</h1>
   <ion-card>
-  
     <ion-card-content>
-      <h3>Nombres</h3>
-      <p>{{ nombres }}</p>
-      <h3>Apellidos</h3>
-      <p>{{ apellidos }}</p>
-      <h3>Número de identidad</h3>
-      <p>-</p>
-      <h3>Email</h3>
-      <p>{{ email }}</p>
-      <h3>Celular</h3>
-      <p>{{ telefono }}</p>
-      <h3>Dirección</h3>
-      <p>{{ direccion }}</p>
+      <ion-item>
+        <ion-label>Nombres:</ion-label>
+        <ion-input value="{{ nombres }}" [(ngModel)]="nombres"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Apellidos:</ion-label>
+        <ion-input value="{{ apellidos }}" [(ngModel)]="apellidos"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-input value="{{ email }}" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Celular:</ion-label>
+        <ion-input value="{{ telefono }}" [(ngModel)]="telefono"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Dirección:</ion-label>
+        <ion-input value="{{ direccion }}" [(ngModel)]="direccion" ></ion-input>
+      </ion-item>
+      <ion-button style="margin-top: 30px;" (click)="saveProfile()" shape="round" expand="full">Guardar</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

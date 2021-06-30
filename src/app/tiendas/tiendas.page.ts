@@ -70,15 +70,8 @@ export class TiendasPage implements OnInit {
     })
   }
 
-  compartir(){
-    this.socialSharing.share('Compartir app', 'app', 'https://app.orivalentydesign.live/public/source/S1Im8N2XSbbhiHpDDt7aHvJ7tJG8E2xmaSruqqbt.jpeg', 'https://app.orivalentydesign.live/').then((dat)=>{
-      console.log('data =>',dat);
-      
-    }).catch((err)=>{
-      console.log('error =>', err);
-      
-    })
-    
+  compartir(imagen, id){
+    this.socialSharing.share(' Descar nuestra app https://play.google.com/store/apps/details?id=com.yamarketapp.orivalenty y si ya la tienes, visita nuestra tienda', null, imagen, 'https://app.pideya.com.pe/tabs/store/products/'+id)
   }
 
   backpage(){

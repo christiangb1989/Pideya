@@ -9,7 +9,7 @@ import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ng
 import { AlertController } from '@ionic/angular';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { NotificacionService } from '../service/notificacion.service';
-
+import { Platform } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -31,9 +31,10 @@ export class LoginPage implements OnInit {
     public alertController: AlertController,
     private firebaseAuthentication: FirebaseAuthentication,
     public OneSignal:OneSignal,
+    public platform: Platform,
     public NotificacionService:NotificacionService
     ) {
-      
+      ///alert(this.platform.is('mobileweb'))
       
       this.storage.get('USER_INFO').then((response)=>{
         if(response){
@@ -62,24 +63,29 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/'])
   }
   login(){
-    // const param = {
-    //   'phone' : this.user.phone,
-    //   'fcm' : this.userId
-    // };
-    // this.http.post(this.apiService.apiUrl+'login', param).subscribe((userData:any)=>{
-    //   console.log('---------++++++------->',userData);
-    //   if (userData.status) {
-    //     this.saveLogin(userData)
-    //   }
-    //   this.loadingController.dismiss();
-    // })
-  
     this.presentLoading();
-    this.firebaseAuthentication.verifyPhoneNumber('+51'+this.user.phone, 3000).then((virficationID)=>{
-      this.presentAlertPrompt(virficationID)
+    if(this.platform.is('mobileweb')){
+      this.loginWeb()
+    }else{
+      this.firebaseAuthentication.verifyPhoneNumber('+51'+this.user.phone, 3000).then((virficationID)=>{
+        this.presentAlertPrompt(virficationID)
+        this.loadingController.dismiss();
+      })
+    }
+  }
+
+  loginWeb(){
+    const param = {
+      'phone' : this.user.phone,
+      'fcm' : 'web'
+    };
+    this.http.post(this.apiService.apiUrl+'login', param).subscribe((userData:any)=>{
+      console.log('---------++++++------->',userData);
+      if (userData.status) {
+        this.saveLogin(userData)
+      }
       this.loadingController.dismiss();
     })
-    
   }
 
   async presentAlertPrompt(virficationID) {
@@ -115,20 +121,21 @@ export class LoginPage implements OnInit {
                 };
                 this.http.post(this.apiService.apiUrl+'login', param).subscribe((userData:any)=>{
                   console.log('---------++++++------->',userData);
+                  //alert('datos: '+ userData)
                   if (userData.status) {
                     this.saveLogin(userData)
                   }
                   this.loadingController.dismiss();
                 },err =>{
-                  this.presentAlert('¡Ups! Algo salió mal++++ ' + JSON.stringify(err) );
+                  this.presentAlert('¡Ups! Algo salió mal' + JSON.stringify(err) );
                   this.loadingController.dismiss();
                 })
               }else{
                 this.presentAlert('Código incorrecto!');
                 this.loadingController.dismiss();
               }
-            },err =>{
-              this.presentAlert('¡Ups! Algo salió mal-------');
+            },(error) =>{
+              this.presentAlert('¡Ups! Algo salió mal '+ error);
               this.loadingController.dismiss();
             })
           }

@@ -7,29 +7,31 @@
         [(ngModel)]="searchData"
         (search)="search()"
         (inputmode)="search"></ion-searchbar>
-  
-  <div class="tienda" *ngFor="let negocio of negocios">
-
-    <div class="col_1">
-      <img class="logo_tienda" src="{{ media+negocio.logo }}">
-    </div>
-    <div class="col_2">
-      <h3 style="font-size: 15px; font-weight: 600;">{{ negocio.nombre }}</h3>
-      <p style="font-size: 11px;">{{ negocio.direccion }}</p>
-    </div>
-    <div class="col_3">
-      <div class="box-share">
-        <div class="box_go_to_store" routerLink="/tabs/store/products/{{ negocio.id }}">
-          <img src="/assets/img/go_to_store.png" class="go_to_store" alt="">
-          <p class="go_to_store_text">Ir a tienda</p>
-        </div>
-        <div class="box_go_to_store" (click)="compartir()">
-          <img src="/assets/img/to_share.png" class="go_to_store" alt="">
-          <p class="go_to_store_text">Compartir</p>
+  <ion-card *ngFor="let negocio of negocios">  
+    <ion-card-content>
+      <div class="col_1" routerLink="/tabs/store/products/{{ negocio.id }}">
+        <img class="logo_tienda" src="{{ media+negocio.logo }}">
+      </div>
+      <div class="col_2">
+        <h3 style="font-size: 15px; font-weight: 600;">{{ negocio.nombre }}</h3>
+        <p style="font-size: 11px;">{{ negocio.direccion }}</p>
+      </div>
+      <div class="col_3">
+        <div class="box-share">
+          <div class="box_go_to_store" routerLink="/tabs/store/products/{{ negocio.id }}">
+            <a style="text-decoration: none; color: initial;" href="https://www.google.com/maps/search/?api=1&query={{ negocio.lat }}%2C{{ negocio.long }}">
+              <img src="/assets/img/go_to_store.png" class="go_to_store" alt="">
+              <p class="go_to_store_text">Ir a tienda</p>
+            </a>
+          </div>
+          <div class="box_go_to_store" (click)="compartir(media+negocio.logo, negocio.id)">
+            <img src="/assets/img/to_share.png" class="go_to_store" alt="">
+            <p class="go_to_store_text">Compartir</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+    </ion-card-content>
+  </ion-card>
   <p class="no_disponible" *ngIf="negocios.length == 0" >No hay tiendas disponibles</p>
 
   <!--  -->

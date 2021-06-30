@@ -62,16 +62,13 @@ export class LoginPage implements OnInit {
   backpage(){
     this.router.navigate(['/'])
   }
+  
   login(){
     this.presentLoading();
-    if(this.platform.is('mobileweb')){
-      this.loginWeb()
-    }else{
-      this.firebaseAuthentication.verifyPhoneNumber('+51'+this.user.phone, 3000).then((virficationID)=>{
-        this.presentAlertPrompt(virficationID)
-        this.loadingController.dismiss();
-      })
-    }
+    this.firebaseAuthentication.verifyPhoneNumber('+51'+this.user.phone, 3000).then((virficationID)=>{
+      this.presentAlertPrompt(virficationID)
+      this.loadingController.dismiss();
+    })
   }
 
   loginWeb(){

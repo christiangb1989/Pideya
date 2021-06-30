@@ -1,6 +1,12 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ tienda.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
-  <img (click)="backpage()" class="icono_back_page" src="/assets/img/backpage.png" alt="">
-  <!-- <ion-icon class="icono_back_page" name="chevron-back-outline"></ion-icon> -->
   <img src="{{ getBannerMall }}" alt="">
   <ion-searchbar 
         placeholder="¿Qué estás buscando?"
@@ -18,7 +24,7 @@
       </div>
       <div class="col_3">
         <div class="box-share">
-          <div class="box_go_to_store" routerLink="/tabs/store/products/{{ negocio.id }}">
+          <div class="box_go_to_store">
             <a style="text-decoration: none; color: initial;" href="https://www.google.com/maps/search/?api=1&query={{ negocio.lat }}%2C{{ negocio.long }}">
               <img src="/assets/img/go_to_store.png" class="go_to_store" alt="">
               <p class="go_to_store_text">Ir a tienda</p>

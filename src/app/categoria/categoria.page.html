@@ -1,7 +1,13 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content class="margin-top">
-  <div class="barpage">
-    <img (click)="backpage()" class="icono_back_page" src="/assets/img/backpage.png" alt="">
-  </div>
+
   
   <div class="tienda" *ngFor="let negocio of storeList">
     <div class="col_1">

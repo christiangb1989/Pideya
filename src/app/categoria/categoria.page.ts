@@ -33,13 +33,13 @@ export class CategoriaPage implements OnInit {
   ngOnInit() {
     this.idCategory = this.activatedRoute.snapshot.paramMap.get('id');
     this.http.get(this.apiService.apiUrl+'categoria/'+this.idCategory).subscribe((res:any)=>{
-      console.log(res.length);
+      //console.log('mmmmmm', res);
       this.countRow = res.length;
       this.storeList = res;
     })
   }
   compartir(imagen, id){
-    this.socialSharing.share(' Descar nuestra app https://play.google.com/store/apps/details?id=com.yamarketapp.orivalenty y si ya la tienes, visita nuestra tienda', null, imagen, 'https://app.pideya.com.pe/tabs/store/products/'+id)
+    this.socialSharing.share(' Descargar nuestra app https://play.google.com/store/apps/details?id=com.yamarketapp.orivalenty y si ya la tienes, visita nuestra tienda', null, imagen, 'https://app.pideya.com.pe/tabs/store/products/'+id)
   }
   backpage(){
     this.location.back();

@@ -1,8 +1,12 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ productos.titulo }}</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
-  <div class="bartop">
-
-  </div>
-  <img routerLink="/tabs/store/products/{{ productos.negocio_id }}" class="icono_back_page" src="/assets/img/backpage.png" alt="">
   <ion-grid class="thumbnails">
     <ion-row>
       <ion-col>
@@ -17,9 +21,10 @@
   </div>
   <h3>{{ productos.titulo }}</h3>
   <p>{{ productos.descripcion }}</p>
+  {{ productos.descuento }}
   <p class="dscprecio" >
-    <span *ngIf="productos.descuento == '0.00'" >S/{{ productos.precio }}</span>
-    <span style="text-decoration: line-through;" *ngIf="!productos.descuento || productos.descuento != '0.00'" >S/{{ productos.precio }}</span>
+    <span *ngIf="!productos.descuento" >S/{{ productos.precio }}</span>
+    <span style="text-decoration: line-through;" *ngIf="productos.descuento" >S/{{ productos.precio }}</span>
     <span *ngIf="productos.descuento && productos.descuento != '0.00'" > - S/{{ (productos.precio - productos.descuento).toFixed(2) }}</span>
     <span *ngIf="productos.descuento && productos.descuento != '0.00'" class="descuento_box">{{ ( productos.descuento / (productos.precio / 100)) }}%</span>
   </p>
@@ -33,7 +38,7 @@
           </div>
         </div>
       </div>
-      <div *ngIf="productos.talla" >
+      <div *ngIf="false">
         <p>Talla</p>
         <div class="talla">
           <div (click)="selectTalla(item)" class="selectTalla" *ngFor="let item of productos.talla">

@@ -1,5 +1,12 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ tienda.nombre }}</ion-title>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
-  <img routerLink="/tabs/tab1"  class="icono_back_page" src="/assets/img/backpage.png" alt="">
   <img src="{{ media+bannerStore }}" style="width: 100%;" alt="">
   <ion-searchbar 
         placeholder="¿Qué estás buscando?"
@@ -15,7 +22,7 @@
             <p>{{ tienda.tiempo_entrega }} - Envío S/{{tienda.precio_entrega }}</p>
           </div>
           <div class="compartir_empresa">
-            <div>
+            <div (click)="shared(media+tienda.logo, tienda.id)">
               <img src="assets/img/to_share.png" alt="">
               <span>Compartir</span>
             </div>

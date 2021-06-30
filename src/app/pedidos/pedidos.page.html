@@ -1,11 +1,12 @@
 <ion-header>
-  <ion-toolbar>
-    <img slot="start" (click)="backpage()" class="icono_back_page" src="/assets/img/backpage.png" alt="">
-    <p class="segircomprando"  (click)="backpage()">Segir comprando</p>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button color="light" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
     <h1  slot="end">Tu Pedido</h1>
   </ion-toolbar>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <p *ngIf="!productos.length" style="margin: 10px;" >No hay productos en el carrito</p>
   <div *ngFor="let prod of productos" class="cajapedido" id="pedido-{{ prod.id }}">

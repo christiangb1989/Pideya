@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { Plugins } from '@capacitor/core';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { Location } from '@angular/common';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 const { Geolocation } = Plugins;
 
 @Component({
@@ -29,6 +30,7 @@ export class ProductosPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private storage: Storage,
     private router: Router,
+    private socialSharing: SocialSharing,
     public toastController: ToastController,
     private apiService: ApiService,
     private nativeGeocoder: NativeGeocoder,
@@ -95,7 +97,9 @@ export class ProductosPage implements OnInit {
    })
     
   }
-
+  shared(imagen, id){
+    this.socialSharing.share(' Descar nuestra app https://play.google.com/store/apps/details?id=com.yamarketapp.orivalenty y si ya la tienes, visita nuestra tienda', null, imagen, 'https://app.pideya.com.pe/tabs/store/products/'+id)
+  }
   backpage(){
     this.location.back()
   }
